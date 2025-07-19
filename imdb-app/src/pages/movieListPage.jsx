@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import MovieList from "../components/movieList";
+import Pagination from "./pagination";
 
 const MovieListPage = () => {
+  
   const [movies, setMovies] = useState([]);
   const fetchMovies = (pageNo) => {
     fetch(
@@ -11,13 +13,14 @@ const MovieListPage = () => {
       .then((data) => setMovies(data.results));
   };
   useEffect(() => {
-    fetchMovies(3);
+    fetchMovies(1);
   }, []);
 
   return (
     <div className="movielist-page">
       <h1>MovieListPage</h1>
       <MovieList movies={movies} />
+      <Pagination onPageChange={fetchMovies}/>
     </div>
   );
 };
