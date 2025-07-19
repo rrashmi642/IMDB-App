@@ -1,0 +1,65 @@
+.header{
+  display: flex;
+  gap: 52%;
+  color: white;
+  background-color:rgb(62, 55, 55);
+  
+}
+.logo{
+  color: yellow;
+margin-left: 10px;
+
+}
+*{
+  color: white;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.nav{
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+  margin-right: 0px;
+  margin-left: 300px;
+
+}
+
+li{
+  color: white;
+  list-style: none;
+  
+}
+.movie{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 150px;
+
+}
+.movie:hover{
+  cursor: pointer;
+  border: 2px solid gold;
+}
+.watchlist{
+ margin-bottom: 0px;
+}
+button{
+  background-color: black;
+}
+.movie img{
+  height: 200px;
+}
+
+.movie-list{
+display: flex;
+gap: 1em;
+flex-wrap: wrap;
+}
+.movielist-page{
+
+  padding: 8px;
+  background-color: black;
+}
