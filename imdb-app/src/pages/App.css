@@ -16,6 +16,7 @@ margin-left: 10px;
   color: white;
   margin-left: 0px;
   margin-right: 0px;
+  background-color: black;
 }
 
 .nav{
@@ -24,6 +25,8 @@ margin-left: 10px;
   margin-top: 25px;
   margin-right: 0px;
   margin-left: 300px;
+  align-items: center;
+  justify-content: center;
 
 }
 
