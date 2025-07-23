@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+
 const Pagination = ({ onPageChange, totalPages }) => {
   const [pages, setPages] = useState([]);
   const [selectedpage, setSelectedPage] = useState(pages[0]);
@@ -7,8 +8,8 @@ const Pagination = ({ onPageChange, totalPages }) => {
   const THRESHOLD = 10;
   const setNewPagesList = (pageNo) => {
     const itemsLength = Math.min(totalPages, THRESHOLD);
-    const itemsonLeft = Math.ceil(THRESHOLD / 2) - 1;
-    const startingPage = Math.max(pageNo - itemsonLeft, 1);
+    let itemsonLeft = Math.ceil(THRESHOLD / 2) - 1;
+    let startingPage = Math.max(pageNo - itemsonLeft, 1);
 
     if (startingPage + itemsLength > totalPages) {
       startingPage = totalPages - itemsLength + 1;

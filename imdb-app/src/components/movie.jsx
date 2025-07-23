@@ -3,10 +3,11 @@
 import '../pages/App.css'
 import App from '../App';
 
-const Movie = ({movie, watchlist,setWatchList})=>{
+const Movie = ({movie, watchlist, setWatchList})=>{
     const clickbtnhandler=()=>{
-         setWatchList({...watchlist, [movie.id]:movie})
-        // console.log("watchlist", watchlist);
+        console.log(movie.id, movie);
+        setWatchList({...watchlist, [movie.id]:movie});
+        console.log("watchlist", watchlist);
     }
     return (
         <div className="movie">

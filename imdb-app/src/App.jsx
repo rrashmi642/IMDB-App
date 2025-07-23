@@ -10,6 +10,7 @@ import MovieDetailsPage from "./pages/MovieDetailsPage";
 import { BrowserRouter, Route, Routes } from "react-router";
 function App() {
   const [watchlist, setWatchList]=useState({});
+  console.log("app",watchlist);
   return (
     <StrictMode>
        <BrowserRouter>
