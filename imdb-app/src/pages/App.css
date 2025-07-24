@@ -86,3 +86,30 @@ flex-wrap: wrap;
 cursor: pointer;
 
 }
+
+.watchlist-container{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+.leftside{
+  width: 40%;
+}
+.rightside{
+  margin: 100px 10px;
+  width: 60%;
+  /* margin-right: 50px; */
+}
+.rightside>table{
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+}
+.rightside>input{
+  border: 2px solid white;
+  width: 88.83%;
+  height: 40px;
+  /* background-color: gray; */
+  color: yellow;
+}
