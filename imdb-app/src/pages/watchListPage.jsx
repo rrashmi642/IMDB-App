@@ -33,6 +33,12 @@ const WatchListPage = ({ watchlist }) => {
     const newlist= Object.values(watchlist).filter(movie=>movie.title.toLowerCase().includes(e.target.value.toLowerCase()));
     setList(newlist);
   }
+  const handleSorting=(type)=>{
+    const newlist=Object.values(watchlist).sort((a,b) => type==='ASC'? a.popularity-b.popularity : b.popularity-a.popularity);
+    setList(newlist);
+
+    }
+  
   console.log("nn", watchlist);
   return (
     <div>
@@ -48,7 +54,7 @@ const WatchListPage = ({ watchlist }) => {
                 <th>Movie Title</th>
                 <th>Poster</th>
                 <th> Genre </th>
-                <th>Popularity </th>
+                <th>Popularity <span onClick={()=>handleSorting('ASC')}>A</span><span onClick={()=>handleSorting('DSC')}>V</span></th>
               </tr>
             </thead>
             <tbody>
