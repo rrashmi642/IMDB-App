@@ -28,37 +28,70 @@ const WatchListPage = ({ watchlist }) => {
     setList(Object.values(watchlist));
   }, [watchlist]);
 
-  const SearchMovieHandle=(e)=>{
+  const SearchMovieHandle = (e) => {
     console.log(e.target.value);
-    const newlist= Object.values(watchlist).filter(movie=>movie.title.toLowerCase().includes(e.target.value.toLowerCase()));
+    const newlist = Object.values(watchlist).filter((movie) =>
+      movie.title.toLowerCase().includes(e.target.value.toLowerCase())
+    );
     setList(newlist);
-  }
-  const handleSorting=(type)=>{
-    const newlist=Object.values(watchlist).sort((a,b) => type==='ASC'? a.popularity-b.popularity : b.popularity-a.popularity);
+  };
+  const handleSorting = (type) => {
+    const newlist = Object.values(watchlist).sort((a, b) =>
+      type === "ASC" ? a.popularity - b.popularity : b.popularity - a.popularity
+    );
     setList(newlist);
+  };
 
-    }
-  
+  const selectedGenres = () => {
+    let genreList = [];
+    Object.values(watchlist).forEach((movie) => {
+      genreList = genreList.concat(movie.genre_ids);
+    });
+    return [...new Set(genreList)];
+  };
+
+  const handleGenreSelection=(genreId) =>{
+    const newList=Object.values(watchlist).filter(movie => genreId ? movie.genre_ids.includes(genreId): true);
+    setList(newList);
+
+  }
+  console.log("hehe", selectedGenres);
   console.log("nn", watchlist);
   return (
-    <div>
+    <div className="watchlist-page">
       <h1>WatchListPage</h1>
       <div className="watchlist-container">
-        <div className="leftside"></div>
-        <div className="rightside">
-          <input type="text" placeholder="Search" onChange={SearchMovieHandle}></input>
-          <table border={1}>
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Movie Title</th>
-                <th>Poster</th>
-                <th> Genre </th>
-                <th>Popularity <span onClick={()=>handleSorting('ASC')}>A</span><span onClick={()=>handleSorting('DSC')}>V</span></th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* {Object.values(watchlist).map((movie) =>(
+        <div className="leftside">
+          <div className="genre-list">
+            <div className="genre" onClick={() => handleGenreSelection('')}>All</div>
+            {selectedGenres().map((genreId) => (
+              <div className="genre" onClick={()=>handleGenreSelection(genreId)}> {genre_ids[genreId]}</div>
+            ))}
+          </div>
+        </div>
+          <div className="rightside">
+            <input
+              type="text"
+              placeholder="Search"
+              onChange={SearchMovieHandle}
+            ></input>
+            <table border={1}>
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  
+                  <th>Poster</th>
+                  <th>Movie Title</th>
+                  <th> Genre </th>
+                  <th>
+                    Popularity{" "}
+                    <span onClick={() => handleSorting("ASC")}>A</span>
+                    <span onClick={() => handleSorting("DSC")}>V</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* {Object.values(watchlist).map((movie) =>(
             <tr key={movie.id}>
               <td>{movie.id}</td>
               <td>{movie.title}</td>
@@ -66,31 +99,32 @@ const WatchListPage = ({ watchlist }) => {
            ))} watchlist &&
             Object.values(watchlist)*/}
 
-              {list.map((movie) => {
-                return (
-                  <tr key={movie.id}>
-                    <td>{movie.id}</td>
-                    <td>{movie.title}</td>
-                    <td>
-                      <img
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                        alt={movie.id}
-                        height="80px"
-                        justify-content="center"
-                      />
-                    </td>
-                    <td>
-                      {movie.genre_ids
-                        .map((genre) => genre_ids[genre])
-                        .join(", ")}
-                    </td>
-                    <td>{movie.popularity}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+                {list.map((movie) => {
+                  return (
+                    <tr key={movie.id}>
+                      <td>{movie.id}</td>
+                      <td><img
+                          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                          alt={movie.id}
+                          height="80px"
+                          justify-content="center"
+                       />
+                       </td>
+                      <td>{movie.title}</td>
+                      
+                      <td>
+                        {movie.genre_ids
+                          .map((genre) => genre_ids[genre])
+                          .join(", ")}
+                      </td>
+                      <td>{movie.popularity}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        
       </div>
     </div>
   );
