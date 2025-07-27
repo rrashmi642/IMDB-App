@@ -5,7 +5,7 @@ import viteLogo from "/vite.svg";
 import Header from "./pages/header";
 import MovieListPage from "./pages/movieListPage.jsx";
 import WatchListPage from "./pages/watchListPage.jsx";
-import MovieDetailsPage from "./pages/MovieDetailsPage.jsx";
+// import MovieDetailsPage from "./pages/MovieDetailsPage.jsx";
 
 import { BrowserRouter, Route, Routes } from "react-router";
 function App() {
@@ -17,7 +17,7 @@ function App() {
    <Header/>
       <Routes>
         <Route path="/" element={<MovieListPage watchlist={watchlist} setWatchList={setWatchList}/>} />
-        <Route path="/details" element={<MovieDetailsPage/>} />
+        {/* <Route path="/details" element={<MovieDetailsPage/>} /> */}
         <Route path="/watchlist" element={<WatchListPage watchlist={watchlist}/>} />
       </Routes>
       </BrowserRouter>
