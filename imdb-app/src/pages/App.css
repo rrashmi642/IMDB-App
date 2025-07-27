@@ -34,13 +34,19 @@ margin-left: 10px;
   background-color: rgb(66, 66, 53);
 
 }
-
-li{
-  color: white;
+.header ul li a{
   list-style: none;
   text-decoration: none;
+  color: yellow;
+}
+  
+li{
+ 
+  list-style: none;
+ 
   
 }
+
 .movie-list{
 margin-left: 4%;
 }
@@ -60,19 +66,49 @@ margin-left: 4%;
   /* gap: 25px; */
 
 }
+
 .movie:hover{
-  position: relative;
-  cursor: pointer;
-  border: 5px solid gold;
-  /* transition: all .3s ease; */
-  /* filter: blur(5px); */
-  /* z-index: 2; */
+  /* position: relative; */
+  /* cursor: pointer; */
+  /* border: 5px solid gold; */
+ /* box-shadow: 12px 12px 12px 1.5px rgba(234, 234, 4, 0.3); */
+ box-shadow: 0 0 40px rgba(234, 237, 4, 0.5), 
+ 0px 0px 60px rgba(234, 237, 4, 0.5); 
+
 }
-/* .watchlist{
+
+.movie img{
+width: 100%;
+height: 220px;
+}
+.movie .addbutton{
   display: flex;
- margin-bottom: 0px;
- align-items: baseline;
-} */
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.movie .movie-info{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.movie-info>h3{
+  margin: 5px 10px;
+  text-align: center;
+  align-items: center;
+}
+.watchlistbutton{
+  margin-bottom: 0%;
+  height: 35px;
+  /* align-self: center; */
+}
+
+.watchlistbutton:hover{
+  cursor: pointer;
+}
+
 button{
   background-color: black;
 }
