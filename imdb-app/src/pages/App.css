@@ -3,7 +3,7 @@
   height: 40px;
   gap: 50%;
   color: white;
-  background-color:rgb(66, 66, 53);
+  background-color:black;
   align-items: center;
   justify-content: center;
   padding-top: 1.5%;
@@ -31,7 +31,7 @@ margin-left: 10px;
   margin-left: 300px;
   align-items: center;
   justify-content: center;
-  background-color: rgb(66, 66, 53);
+  background-color: black;
 
 }
 .header ul li a{
@@ -143,7 +143,9 @@ cursor: pointer;
 }
 .watchlist-page{
   margin-top: 0%;
+  /* height: 100rem; */
   background-color: black;
+  
 
 }
 .watchlist-container{
